@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 require('dotenv').config();
 mongoose.set('strictQuery', false);
+
+const PORT = process.env.PORT || 3001;
 mongoose
   .connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tn0wwt0.mongodb.net/?retryWrites=true&w=majority`
@@ -96,7 +98,7 @@ app.get("/get-data/:_id", (req, res) => {
     });
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("Server is listening on port 3001");
 });
 
